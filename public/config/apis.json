@@ -1,0 +1,16 @@
+[
+  {
+    "title": "简心API",
+    "desc": "为用户提供安全可靠的接口服务平台\n",
+    "tags": [],
+    "img": "https://www.qvqa.cn/favicon.ico",
+    "link": "https://api.qvqa.cn/"
+  },
+  {
+    "title": "一言",
+    "desc": "为用户提供安全可靠的接口服务平台\n",
+    "tags": ["Hitokoto"],
+    "img": "https://hitokoto.cn/favicon.ico",
+    "link": "https://v1.hitokoto.cn"
+  }
+]

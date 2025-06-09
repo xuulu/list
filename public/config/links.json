@@ -1,0 +1,16 @@
+[
+  {
+    "title": "简心API",
+    "desc": "为用户提供安全可靠的接口服务平台",
+    "tags": [],
+    "img": "https://www.qvqa.cn/favicon.ico",
+    "link": "https://api.qvqa.cn/"
+  },
+  {
+    "title": "栗次元API",
+    "desc": "随机二次元图床API,本站默认图标使用的该api",
+    "tags": [],
+    "img": "https://tc.alcy.cc/favicon.ico",
+    "link": "https://t.alcy.cc"
+  }
+]
