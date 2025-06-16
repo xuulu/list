@@ -1,39 +1,27 @@
-name: Build Vite + React with pnpm 🛠️
+name: CI – Build with pnpm
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: 🧾 Checkout code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: 🧰 Setup pnpm
+      - name: Setup pnpm (v9.5)
         uses: pnpm/action-setup@v4
         with:
-          version: 8
+          version: 9.5.0
           run_install: false
 
-      - name: ⚙️ Setup Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: 'pnpm'
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: ⚡ Build project
+      - name: Build
         run: pnpm build
-
-      - name: 📤 Upload build artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist
