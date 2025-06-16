@@ -1,31 +1,33 @@
-name: Build Vite+React App
+name: Build Vite + React App
 
 on:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+    steps:
+      - name: 🧾 Checkout code
+        uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'  # 使用最新的LTS版本
+      - name: ⚡ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm ci  # 使用ci保证依赖一致性
+      - name: 📦 Install dependencies
+        run: npm ci
 
-      - name: Run build
-        run: npm run build
+      - name: ⚙️ Build project
+        run: npm run build
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: dist
-          path: dist
+      - name: 📤 Upload dist (artifact)
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-dist
+          path: dist
