@@ -1,4 +1,4 @@
-name: Build Vite + React App with pnpm
+name: Build Vite + React with pnpm 🛠️
 
 on:
   push:
@@ -14,26 +14,26 @@ jobs:
       - name: 🧾 Checkout code
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          cache: 'pnpm'
-
       - name: 🧰 Setup pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 8
-          run_install: false  # 我们后面手动执行 pnpm install
+          run_install: false
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
 
       - name: 📦 Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
 
-      - name: ⚙️ Build project
+      - name: ⚡ Build project
         run: pnpm build
 
-      - name: 📤 Upload dist (artifact)
+      - name: 📤 Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: build-dist
+          name: dist
           path: dist
