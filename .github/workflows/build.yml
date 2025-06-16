@@ -1,4 +1,4 @@
-name: Build Vite + React App
+name: Build Vite + React App with pnpm
 
 on:
   push:
@@ -14,17 +14,20 @@ jobs:
       - name: 🧾 Checkout code
         uses: actions/checkout@v4
 
-      - name: ⚡ Setup Node.js
+      - name: ⚙️ Setup Node.js + pnpm
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
+          cache: 'pnpm'
+
+      - name: 🔧 Install pnpm
+        run: npm install -g pnpm
 
       - name: 📦 Install dependencies
-        run: npm ci
+        run: pnpm install
 
       - name: ⚙️ Build project
-        run: npm run build
+        run: pnpm build
 
       - name: 📤 Upload dist (artifact)
         uses: actions/upload-artifact@v4
